@@ -1,21 +1,11 @@
-import saveTo from '../src/saveTo.js';
 import mock from 'mock-fs';
-import fs from 'fs';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const fsp = fs.promises;
-
-/*
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-*/
+import fsp from 'fs/promises';
+import saveTo from '../src/saveTo.js';
 
 beforeEach(() => {
   mock({
-    'dir1': {}
-  })
+    dir1: {},
+  });
 });
 
 test('saveTo saves downloaded file', async () => {

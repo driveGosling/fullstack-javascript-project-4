@@ -1,8 +1,5 @@
-import fs from 'fs';
-const fsp = fs.promises;
+import fsp from 'fs/promises';
 
-const saveTo = (path, data) => {
-  return fsp.writeFile(path, data);
-};
+const saveTo = (path, data) => fsp.writeFile(path, data);
 
 export default saveTo;
