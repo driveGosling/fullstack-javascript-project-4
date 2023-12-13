@@ -1,4 +1,4 @@
-import transformUrl from "../src/transformUrl.js";
+import transformUrl from '../src/transformUrl.js';
 
 describe('transformUrl', () => {
   test('transforms url according to specified requirements', () => {
@@ -7,5 +7,5 @@ describe('transformUrl', () => {
     const result = transformUrl(url, path);
     const expected = '/some/path/ru-hexlet-io-courses.html';
     expect(result).toBe(expected);
-  })
+  });
 });
