@@ -1,4 +1,4 @@
-function transformUrl(url, path) {
+const transformUrl = (url, path) => {
   // Replace the protocol with an empty string
   const protocolRemoved = url.replace(/^https?:\/\//, '');
 

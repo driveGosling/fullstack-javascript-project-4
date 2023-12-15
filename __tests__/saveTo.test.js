@@ -4,16 +4,16 @@ import saveTo from '../src/saveTo.js';
 
 beforeEach(() => {
   mock({
-    dir1: {},
+    'path/to/save': {},
   });
 });
 
-test('saveTo saves downloaded file', async () => {
-  const path = 'dir1/file.txt';
-  const data = 'some data';
-  await saveTo(path, data);
-  const actual = await fsp.readFile(path, 'utf-8');
-  expect(actual).toEqual(data);
+test('saveTo creates a file with the correct content', async () => {
+  const outputPath = 'path/to/save/test-page.html';
+  const contentToSave = 'some content';
+  await saveTo(outputPath, contentToSave);
+  const savedContent = await fsp.readFile(outputPath, 'utf-8');
+  expect(savedContent).toBe(contentToSave);
 });
 
 afterEach(mock.restore);
