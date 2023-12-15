@@ -1,7 +1,7 @@
 import fsp from 'fs/promises';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import extractImages from "../src/extractImages";
+import extractImages from '../src/extractImages.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

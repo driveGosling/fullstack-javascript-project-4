@@ -9,6 +9,6 @@ const transformUrl = (url, path) => {
   const transformedUrl = `${path}/${symbolsReplaced}.html`;
 
   return transformedUrl;
-}
+};
 
 export default transformUrl;
