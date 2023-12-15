@@ -1,3 +1,6 @@
+import fsp from 'fs/promises';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import extractImages from "../src/extractImages";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,6 +18,6 @@ test('extractImages handles empty HTML content', () => {
 test('extractImages returns extracted image URLs', async () => {
   const htmlContent = await readFile('testPage.html');
   const extractedImages = extractImages(htmlContent);
-  const expectedImages = ['nodejs.png'];
+  const expectedImages = ['/assets/professions/nodejs.png'];
   expect(extractedImages).toEqual(expectedImages);
 });
