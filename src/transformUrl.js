@@ -8,10 +8,8 @@ export const transformUrl = (url) => {
   return transformedUrl;
 };
 
-export const getHtmlPath = (path, name) => {
-  return `${path}/${name}.html`;
-};
+export const getHtmlPath = (path, name) => `${path}/${name}.html`;
 
-export const getFilesPath = (path, name) => {
-  return `${path}/${name}_files`;
-};
+export const getFilesPath = (path, name) => `${path}/${name}_files`;
+
+export const removeExtension = (filename) => filename.replace(/\.[^.]+$/, '');

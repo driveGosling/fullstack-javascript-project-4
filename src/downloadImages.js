@@ -2,7 +2,7 @@ import cheerio from 'cheerio';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import { transformUrl } from './transformUrl.js';
+import { transformUrl, removeExtension } from './transformUrl.js';
 
 const extractImages = (html, pageUrl) => {
   const $ = cheerio.load(html);
@@ -31,8 +31,9 @@ async function downloadImages(html, pageUrl, folderPath) {
       const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
 
       const imageExt = path.extname(imageUrl);
+      const imageName = transformUrl(removeExtension(imageUrl));
 
-      const imageFileName = `${transformUrl(imageUrl)}${imageExt}`;
+      const imageFileName = `${imageName}${imageExt}`;
       const imagePath = path.join(folderPath, imageFileName);
 
       fs.writeFileSync(imagePath, response.data);

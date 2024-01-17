@@ -1,5 +1,5 @@
 import fetchPage from './fetchPage.js';
-import { transformUrl, getHtmlPath, getFilesPath} from './transformUrl.js';
+import { transformUrl, getHtmlPath, getFilesPath } from './transformUrl.js';
 import saveTo from './saveTo.js';
 import downloadImages from './downloadImages.js';
 
