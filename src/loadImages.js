@@ -2,9 +2,9 @@ import cheerio from 'cheerio';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import { transformUrl, removeExtension } from './transformUrl.js';
+import { transformUrl, removeExt } from './transformUrl.js';
 
-const extractImages = (html, pageUrl) => {
+const getImgUrls = (html, pageUrl) => {
   const $ = cheerio.load(html);
   const imageUrls = [];
 
@@ -18,8 +18,8 @@ const extractImages = (html, pageUrl) => {
   return imageUrls;
 };
 
-async function downloadImages(html, pageUrl, folderPath) {
-  const imageUrls = extractImages(html, pageUrl);
+async function loadImages(html, pageUrl, folderPath) {
+  const imageUrls = getImgUrls(html, pageUrl);
   // Create the folder if it doesn't exist
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });
@@ -45,4 +45,4 @@ async function downloadImages(html, pageUrl, folderPath) {
   await Promise.all(downloadPromises);
 }
 
-export default downloadImages;
+export default loadImages;
