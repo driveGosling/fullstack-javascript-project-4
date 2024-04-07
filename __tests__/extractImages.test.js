@@ -1,4 +1,4 @@
-import fsp from 'fs/promises';
+import fs from 'fs';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import extractImages from '../src/downloadImages.js';
@@ -6,7 +6,7 @@ import extractImages from '../src/downloadImages.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-const readFile = (filename) => fsp.readFile(getFixturePath(filename), 'utf-8');
+const readFile = (filename) => fs.promises.readFile(getFixturePath(filename), 'utf-8');
 
 test('extractImages handles empty HTML content', () => {
   const htmlContent = '';
